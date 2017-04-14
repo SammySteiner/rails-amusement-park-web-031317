@@ -1,0 +1,11 @@
+User Show Page
+<% if @user.admin %>
+<%= "ADMIN" %>
+<% end %>
+<%= @user.name %>
+Mood: <%= @user.mood %>
+Tickets <%= @user.tickets %>
+Height <%= @user.height %>
+
+Log Out
+<%= link_to "Log Out", signout_path, method: 'delete' %>

@@ -24,6 +24,14 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
            <!--  nav here -->
+           <li><a href="/users/new">Sign Up</a></li>
+           <li><% if session[:user_id] %>
+             <%= form_tag( '/signout', method: 'delete' ) do %>
+             <%= submit_tag 'Log Out' %>
+             <% end %>
+             <% end %>
+           </li>
+
           </ul>
         </div><!--/.nav-collapse -->
       </div>
