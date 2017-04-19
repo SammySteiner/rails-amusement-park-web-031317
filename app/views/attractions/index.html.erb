@@ -1,0 +1,28 @@
+Attractions Index Page
+<h1>Attractions:</h1>
+<% Attraction.all.each do |ride| %>
+  <% if @user.admin %>
+    <div>
+    <%= ride.name %>
+    <%= link_to "Show #{ride.name}", attraction_path(ride.id) %>
+   </div>
+  <% else %>
+  <div>
+    <%= ride.name %>
+    <%= link_to "Go on #{ride.name}", attraction_path(ride.id) %>
+  </div>
+  <% end %>
+<% end %>
+
+
+<% if @user.admin %>
+<%= link_to "New Attraction", new_attraction_path %>
+<% end %>
+<!-- <div>
+
+</div>
+t.string  "name"
+t.integer "tickets"
+t.integer "nausea_rating"
+t.integer "happiness_rating"
+t.integer "min_height" -->

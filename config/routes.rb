@@ -14,5 +14,16 @@ delete '/signout', to: 'sessions#destroy', as: :signout
 get '/users/new', to: 'users#new', as: :signup
 post '/users', to: 'users#create'
 get '/users/:id', to: 'users#show', as: :user
+# Attractions
+get '/attractions', to: 'attractions#index', as: :attractions
+get '/attractions/new', to: 'attractions#new', as: :new_attraction
+post '/attractions', to: 'attractions#create'
+get '/attractions/:id', to: 'attractions#show', as: :attraction
+get '/attractions/:id/edit', to: 'attractions#edit', as: :edit_attraction
+patch '/attractions/:id', to: 'attractions#update'
+
+# Rides
+post 'rides/new', to: 'rides#new'
+
 
 end

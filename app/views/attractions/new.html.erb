@@ -1,0 +1,17 @@
+New Attraction
+
+<% if @user.admin %>
+<%= form_tag "/attractions" do %>
+<%= label_tag "Name" %>
+<%= text_field_tag :'attraction[name]' %>
+<%= label_tag "Tickets" %>
+<%= number_field_tag :'attraction[tickets]' %>
+<%= label_tag "Nausea Rating" %>
+<%= number_field_tag :'attraction[nausea_rating]' %>
+<%= label_tag "Happiness Rating" %>
+<%= number_field_tag :'attraction[happiness_rating]' %>
+<%= label_tag "Minimum Height" %>
+<%= number_field_tag :'attraction[min_height]' %>
+<%= submit_tag "Create Attraction" %>
+<% end %>
+<% end %>

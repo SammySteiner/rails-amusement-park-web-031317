@@ -14,7 +14,7 @@ class Ride < ActiveRecord::Base
    find_user
    find_attraction
    if not_tall_enough? && not_enough_tickets?
-     "Sorry. You do not have enough tickets to ride the #{@attraction.name}. You are not tall enough to ride the #{@attraction.name}."
+     return "Sorry. You do not have enough tickets to ride the #{@attraction.name}. You are not tall enough to ride the #{@attraction.name}."
    elsif !not_tall_enough? && not_enough_tickets?
      not_enough_tickets?
    elsif !not_enough_tickets? && not_tall_enough?
@@ -24,19 +24,20 @@ class Ride < ActiveRecord::Base
     nauseate
     make_happy
     @user.save
+    return "Thanks for riding the #{@attraction.name}!"
   end
 
  end
 
  def not_enough_tickets?
   if @attraction.tickets > @user.tickets
-    "Sorry. You do not have enough tickets to ride the #{@attraction.name}."
+    return "Sorry. You do not have enough tickets to ride the #{@attraction.name}."
   end
  end
 
  def not_tall_enough?
    if @attraction.min_height > @user.height
-     "Sorry. You are not tall enough to ride the #{@attraction.name}."
+     return "Sorry. You are not tall enough to ride the #{@attraction.name}."
    end
  end
 

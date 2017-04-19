@@ -1,0 +1,21 @@
+Attraction Edit Page
+
+<% if @user.admin %>
+  <%= form_tag "/attractions/#{@attraction.id}", method: 'patch' do %>
+  <%= label_tag "Name" %>
+  <%= text_field_tag :'attraction[name]', @attraction.name %>
+  <%= label_tag "Tickets" %>
+  <%= number_field_tag :'attraction[tickets]', @attraction.tickets %>
+  <%= label_tag "Nausea Rating" %>
+  <%= number_field_tag :'attraction[nausea_rating]', @attraction.nausea_rating %>
+  <%= label_tag "Happiness Rating" %>
+  <%= number_field_tag :'attraction[happiness_rating]', @attraction.happiness_rating %>
+  <%= label_tag "Minimum Height" %>
+  <%= number_field_tag :'attraction[min_height]', @attraction.min_height %>
+  <%= hidden_field_tag 'attraction_id', @attraction.id %>
+  <%= submit_tag "Update Attraction" %>
+<% end %>
+
+<% else %>
+  <%= "This page is for Admins only. How did you even get here?" %>
+<% end %>

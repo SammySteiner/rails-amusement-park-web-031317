@@ -1,9 +1,5 @@
 class UsersController < ApplicationController
 
-  def index
-
-  end
-
   def show
     if session[:user_id]
       set_user
@@ -31,7 +27,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-
   end
 
   def destroy
@@ -41,7 +36,7 @@ class UsersController < ApplicationController
   private
 
   def set_user
-    @user = User.find(params[:id])
+    @user = User.find(session[:user_id])
   end
 
   def user_params

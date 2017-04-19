@@ -1,31 +1,11 @@
 class RidesController < ApplicationController
 
-  def index
-
-  end
-
-  def show
-
-  end
-
   def new
-
-  end
-
-  def create
-
-  end
-
-  def update
-
-  end
-
-  def edit
-
-  end
-
-  def destroy
-
+    @user = User.find(session[:user_id])
+    @attraction = Attraction.find(params[:ride_id])
+    @ride = Ride.create(user_id: @user.id, attraction_id: @attraction.id)
+    flash[:message] = @ride.take_ride
+    redirect_to user_path(@user)
   end
 
 end
